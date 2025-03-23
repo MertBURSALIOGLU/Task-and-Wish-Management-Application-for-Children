@@ -1,0 +1,15 @@
+ADD_WISH W1 "Color Pencils" "12-pack colored pencils" 2025-03-23 09:00 2025-03-23 19:00 
+ADD_WISH W2 "Lollipop" "Big round rainbow lollipop" 2025-03-23 14:00 2025-03-23 20:00 
+ADD_WISH W3 "Cookie Box" "Chocolate chip cookies" 2025-03-23 10:00 2025-03-23 22:00 
+ADD_WISH W4 "Notebook" "Cute unicorn notebook" 2025-03-23 08:00 2025-03-23 13:00 
+ADD_WISH W5 "Storybook" "Short bedtime tales" 2025-03-23 15:00 2025-03-23 21:00 
+ADD_WISH W6 "Mini Football" "Soft foam football" 2025-03-20 10:00 2025-03-22 19:00 
+ADD_WISH W7 "Stickers Set" "Animals and emojis" 2025-03-19 14:00 2025-03-21 18:00 
+ADD_WISH W8 "Magic Pen" "Blue invisible ink pen" 2025-03-18 11:00 2025-03-22 15:00 
+ADD_WISH W9 "Yo-yo" "Glow in the dark yo-yo" 2025-03-21 10:00 2025-03-23 13:00 
+ADD_WISH W10 "Small Puzzle" "30-piece mini puzzle" 2025-03-20 13:00 2025-03-22 17:00 
+ADD_WISH W11 "Lego Set" "Star Wars edition" 2025-03-25 13:00 2025-03-29 17:00 
+ADD_WISH W12 "Backpack" "Spider-man themed" 2025-03-27 10:00 2025-03-28 16:00 
+ADD_WISH W13 "Paint Set" "Watercolor beginner set" 2025-03-26 15:00 2025-03-27 18:00 
+ADD_WISH W14 "Action Figure" "Mini Batman toy" 2025-03-28 14:00 2025-03-29 14:00 
+ADD_WISH W15 "Rubik's Cube" "2x2 beginner cube" 2025-03-30 10:00 2025-03-31 15:00 

@@ -1,0 +1,15 @@
+ADD_TASK Teacher 101 "Math Homework" "Solve exercises on page 42" 2025-03-23 10:00 2025-03-23 20:00 10
+ADD_TASK Parent 102 "Clean Room" "Organize your books and desk" 2025-03-23 12:00 2025-03-23 17:00 8
+ADD_TASK Teacher 103 "Reading" "Read 10 pages from science book" 2025-03-23 08:00 2025-03-23 09:00 5
+ADD_TASK Parent 104 "Take Out Trash" "Take the trash out before dinner" 2025-03-23 18:00 2025-03-23 19:00 2
+ADD_TASK Teacher 105 "Draw Shapes" "Draw basic shapes on paper" 2025-03-23 14:00 2025-03-23 15:00 3
+ADD_TASK Parent 106 "Water Plants" "Water all the garden plants" 2025-03-19 10:00 2025-03-21 10:00 4
+ADD_TASK Teacher 107 "Practice Piano" "Play scale exercises" 2025-03-20 15:00 2025-03-22 16:00 5
+ADD_TASK Parent 108 "Sweep the Floor" "Living room and hall" 2025-03-18 09:00 2025-03-22 11:00 3
+ADD_TASK Teacher 109 "Spelling Practice" "List 5 new words" 2025-03-21 13:00 2025-03-22 14:00 4
+ADD_TASK Parent 110 "Organize Closet" "Fold clothes neatly" 2025-03-17 16:00 2025-03-23 19:00 6
+ADD_TASK Teacher 111 "Science Project" "Prepare volcano model" 2025-03-24 10:00 2025-03-27 15:00 12
+ADD_TASK Parent 112 "Sketch Drawing" "Draw an animal" 2025-03-25 12:00 2025-03-25 14:00 5
+ADD_TASK Teacher 113 "Write Poem" "Short 4-line poem" 2025-03-26 14:00 2025-03-27 16:00 4
+ADD_TASK Parent 114 "Recycle Bottles" "Sort and dispose bottles" 2025-03-28 10:00 2025-03-28 12:00 2
+ADD_TASK Teacher 115 "Bike Ride" "20-minute outdoor cycling" 2025-03-29 09:00 2025-03-29 10:00 6
