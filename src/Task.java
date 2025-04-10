@@ -43,12 +43,9 @@ public class Task {
     }
 
     public String getAssigner() {
-        if (assigner.equalsIgnoreCase("T")) {
-            return "Teacher";
-        } else {
-            return "Parent";
-        }
+        return assigner;
     }
+
 
     public int getCoin() {
         return coin;
