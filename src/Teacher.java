@@ -1,5 +1,5 @@
 public class Teacher extends Adult {
-    public Teacher(String name, int ID, ManageTask manageTask) {
-        super(name, ID, manageTask);
+    public Teacher(String name, int ID) {
+        super(name, ID);
     }
 }

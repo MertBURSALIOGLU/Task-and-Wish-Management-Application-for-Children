@@ -4,15 +4,11 @@ import java.time.format.DateTimeParseException;
 import java.util.List;
 
 public class Operations {
-    private ManageTask managetask;
-    private ManageWish managewish;
     private Teacher teacher;
     private Parent parent;
     private Child child;
 
-    public Operations(ManageTask managetask, ManageWish managewish, Teacher teacher, Parent parent, Child child) {
-        this.managetask = managetask;
-        this.managewish = managewish;
+    public Operations(Teacher teacher, Parent parent, Child child) {
         this.teacher = teacher;
         this.parent = parent;
         this.child = child;
@@ -28,52 +24,42 @@ public class Operations {
 
         if (op.startsWith("ADD_TASK")) {
             operationAddTask(prt);
-        }
-        else if (op.equalsIgnoreCase("LIST_ALL_TASKS")) {
+        } else if (op.equalsIgnoreCase("LIST_ALL_TASKS")) {
             operationListTask(prt);
-        }
-        else if (op.equalsIgnoreCase("TASK_CHECKED")) {
+        } else if (op.equalsIgnoreCase("TASK_CHECKED")) {
             operationCheckTask(prt);
-        }
-        else if (op.equalsIgnoreCase("TASK_DONE")) {
+        } else if (op.equalsIgnoreCase("TASK_DONE")) {
             operationCompleteTask(prt);
-        }
-        else if (op.startsWith("ADD_WISH")) {
+        } else if (op.startsWith("ADD_WISH")) {
             operationAddWish(prt);
-        }
-        else if (op.equalsIgnoreCase("LIST_ALL_WISHES")) {
+        } else if (op.equalsIgnoreCase("LIST_ALL_WISHES")) {
             operationListWish(prt);
-        }
-        else if (op.equalsIgnoreCase("ADD_BUDGET_COIN")) {
+        } else if (op.equalsIgnoreCase("ADD_BUDGET_COIN")) {
             operationAddCoin(prt);
-        }
-        else if (op.equalsIgnoreCase("WISH_CHECKED")) {
+        } else if (op.equalsIgnoreCase("WISH_CHECKED")) {
             operationCheckWish(prt);
-        }
-        else if (op.equalsIgnoreCase("PRINT_BUDGET")) {
+        } else if (op.equalsIgnoreCase("PRINT_BUDGET")) {
             operationPrintBudget(prt);
-        }
-        else if (op.equalsIgnoreCase("PRINT_STATUS")) {
+        } else if (op.equalsIgnoreCase("PRINT_STATUS")) {
             operationPrintStatus(prt);
-        }
-        else {
+        } else {
             System.out.println("Error: Invalid command!");
         }
     }
 
     private void operationPrintStatus(List<String> prt) {
-        if(prt.size() > 1) {
+        if (prt.size() > 1) {
             System.out.println("Status printing operation does not require any parameters!");
-        }else{
-            System.out.println("Current level: "+child.getLevel());
+        } else {
+            System.out.println("Current level: " + child.getLevel());
         }
     }
 
     private void operationPrintBudget(List<String> prt) {
-        if(prt.size() > 1) {
+        if (prt.size() > 1) {
             System.out.println("Budget printing operation does not require any parameters!");
-        }else{
-            System.out.println("Current budget: "+child.getCoins());
+        } else {
+            System.out.println("Current budget: " + child.getCoins());
         }
     }
 
@@ -89,14 +75,12 @@ public class Operations {
 
         if (status.equals("APPROVED")) {
             if (level == -1 || child.getLevel() > level) {
-                managewish.approveWish(wishID, "APPROVED");
-                System.out.println("Wish " + wishID + " approved.");
+                parent.approveWish(child, wishID, "APPROVED");
             } else {
                 System.out.println("Child level too low to approve this wish.");
             }
         } else if (status.equals("REJECTED")) {
-            managewish.approveWish(wishID, "REJECTED");
-            System.out.println("Wish " + wishID + " rejected.");
+            parent.approveWish(child, wishID, "REJECTED");
         } else {
             System.out.println("Error: Invalid command!");
         }
@@ -111,7 +95,7 @@ public class Operations {
 
     private void operationListWish(List<String> prt) {
         if (prt.size() == 1) {
-            managewish.showAllWishes(child.getLevel());
+            child.showAllWishes();
         } else {
             System.out.println("Too many parameters for LIST_ALL_WISHES");
         }
@@ -184,7 +168,7 @@ public class Operations {
                 System.out.println("Error: Task ID must be a number!");
                 return;
             }
-            managetask.completeTask(taskId);
+            child.completeTask(taskId);
             System.out.println("Task " + taskId + " completed successfully!");
         } else {
             System.out.println("TASK_DONE operation needs 1 parameter! (Task ID)");
@@ -208,7 +192,7 @@ public class Operations {
                 return;
             }
 
-            Task task = managetask.getTaskbyID(taskId);
+            Task task = child.getTaskbyID(taskId);
             if (task == null) {
                 System.out.println("Error: Task ID not found!");
                 return;
@@ -219,9 +203,11 @@ public class Operations {
                 return;
             }
 
-            managetask.checkTask(taskId, rating);
-            System.out.println("Task completed successfully with rating " + rating);
-            System.out.println("Child awarded coins: " + child.getCoins());
+            if (task.getAssigner().equalsIgnoreCase("Teacher")) {
+                teacher.checkTask(task, rating, child);
+            } else {
+                parent.checkTask(task, rating, child);
+            }
         } else {
             System.out.println("TASK_CHECKED operation needs 2 parameters! (Task ID & Rating)");
         }
@@ -231,14 +217,14 @@ public class Operations {
         if (prt.size() == 2) {
             String time = prt.get(1).toUpperCase();
             if (time.equals("D")) {
-                managetask.showDailyList();
+                child.showDailyTasks();
             } else if (time.equals("W")) {
-                managetask.showWeeklyList();
+                child.showWeeklyTasks();
             } else {
                 System.out.println("Invalid parameter! Use D for daily or W for weekly.");
             }
         } else if (prt.size() == 1) {
-            managetask.showAllList();
+            child.showAllTasks();
         } else {
             System.out.println("Too many parameters for LIST_ALL_TASKS");
         }
@@ -326,9 +312,9 @@ public class Operations {
         System.out.println("Coin: " + coin);
 
         if (assigner.equalsIgnoreCase("T")) {
-            teacher.addTask(task);
+            teacher.addTask(child, task);
         } else {
-            parent.addTask(task);
+            parent.addTask(child, task);
         }
     }
 
