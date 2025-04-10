@@ -16,7 +16,7 @@ public class Operations {
 
     public void operationselector(List<String> prt) {
         if (prt == null || prt.isEmpty()) {
-            System.out.println("Error: Empty input detected!");
+            System.out.println("❗ Error: Empty input detected!");
             return;
         }
 
@@ -43,29 +43,33 @@ public class Operations {
         } else if (op.equalsIgnoreCase("PRINT_STATUS")) {
             operationPrintStatus(prt);
         } else {
-            System.out.println("Error: Invalid command!");
+            System.out.println("❗ Error: Invalid command!");
+            System.out.println("────────────────────────────────────────────");
         }
     }
 
     private void operationPrintStatus(List<String> prt) {
         if (prt.size() > 1) {
-            System.out.println("Status printing operation does not require any parameters!");
+            System.out.println("ℹ️ Status printing operation does not require any parameters!");
         } else {
-            System.out.println("Current level: " + child.getLevel());
+            System.out.println("🎮 Current level: " + child.getLevel());
+            System.out.println("────────────────────────────────────────────");
         }
     }
 
     private void operationPrintBudget(List<String> prt) {
         if (prt.size() > 1) {
-            System.out.println("Budget printing operation does not require any parameters!");
+            System.out.println("ℹ️ Budget printing operation does not require any parameters!");
         } else {
-            System.out.println("Current budget: " + child.getCoins());
+            System.out.println("💰 Current budget: " + child.getCoins());
+            System.out.println("────────────────────────────────────────────");
         }
     }
 
     private void operationCheckWish(List<String> prt) {
         if (prt.size() < 3) {
-            System.out.println("CHECK_WISH operation need more parameters! (Wish ID, Wish Status, Optional(Level))");
+            System.out.println("⚠️ CHECK_WISH operation needs more parameters! (Wish ID, Wish Status, Optional(Level))");
+            System.out.println("────────────────────────────────────────────");
             return;
         }
 
@@ -76,20 +80,26 @@ public class Operations {
         if (status.equals("APPROVED")) {
             if (level == -1 || child.getLevel() > level) {
                 parent.approveWish(child, wishID, "APPROVED");
+                System.out.println("🟢 Wish " + wishID + " approved.");
             } else {
-                System.out.println("Child level too low to approve this wish.");
+                System.out.println("🟡 Child level too low to approve this wish.");
             }
         } else if (status.equals("REJECTED")) {
             parent.approveWish(child, wishID, "REJECTED");
+            System.out.println("🔴 Wish " + wishID + " rejected.");
         } else {
-            System.out.println("Error: Invalid command!");
+            System.out.println("❗ Error: Invalid command!");
         }
+
+        System.out.println("────────────────────────────────────────────");
     }
 
     private void operationAddCoin(List<String> prt) {
         if (prt.size() == 2) {
             int coin = Integer.parseInt(prt.get(1));
             parent.addCoin(child, coin);
+            System.out.println("💰 " + coin + " coins added to child.");
+            System.out.println("────────────────────────────────────────────");
         }
     }
 
@@ -97,13 +107,15 @@ public class Operations {
         if (prt.size() == 1) {
             child.showAllWishes();
         } else {
-            System.out.println("Too many parameters for LIST_ALL_WISHES");
+            System.out.println("⚠️ Too many parameters for LIST_ALL_WISHES");
+            System.out.println("────────────────────────────────────────────");
         }
     }
 
     public void operationAddWish(List<String> prt) {
         if (prt.size() < 4) {
-            System.out.println("Error: Wish adding operation requires at least 4 parameters!");
+            System.out.println("❗ Error: Wish adding operation requires at least 4 parameters!");
+            System.out.println("────────────────────────────────────────────");
             return;
         }
 
@@ -124,7 +136,8 @@ public class Operations {
                     startDate = endDate;
                     endDate = data;
                 } else {
-                    System.out.println("Error: Too many dates detected!");
+                    System.out.println("❗ Error: Too many dates detected!");
+                    System.out.println("────────────────────────────────────────────");
                     return;
                 }
             } else if (isTime(data)) {
@@ -134,11 +147,13 @@ public class Operations {
                     startTime = endTime;
                     endTime = data;
                 } else {
-                    System.out.println("Error: Too many times detected!");
+                    System.out.println("❗ Error: Too many times detected!");
+                    System.out.println("────────────────────────────────────────────");
                     return;
                 }
             } else {
-                System.out.println("Error: Unrecognized parameter: " + data);
+                System.out.println("❗ Error: Unrecognized parameter: " + data);
+                System.out.println("────────────────────────────────────────────");
                 return;
             }
 
@@ -148,30 +163,25 @@ public class Operations {
         Wish wish = new Wish(wishId, wishTitle, wishDescription, child.getLevel(), startDate, startTime, endDate, endTime, "PENDING");
         child.addWish(wish);
 
-        System.out.println("Wish added successfully!");
-        System.out.println("Wish Details: ");
-        System.out.println("ID: " + wishId);
-        System.out.println("Title: " + wishTitle);
-        System.out.println("Description: " + wishDescription);
-        System.out.println("Start Date: " + (startDate != null ? startDate : "Not Provided"));
-        System.out.println("Start Time: " + (startTime != null ? startTime : "Not Provided"));
-        System.out.println("End Date: " + (endDate != null ? endDate : "Not Provided"));
-        System.out.println("End Time: " + (endTime != null ? endTime : "Not Provided"));
+        System.out.println("🎁 Wish Added Successfully!");
+        child.printWishDetails(wish);
     }
-
     private void operationCompleteTask(List<String> prt) {
         if (prt.size() == 2) {
             int taskId;
             try {
                 taskId = Integer.parseInt(prt.get(1));
             } catch (NumberFormatException e) {
-                System.out.println("Error: Task ID must be a number!");
+                System.out.println("❗ Error: Task ID must be a number!");
+                System.out.println("────────────────────────────────────────────");
                 return;
             }
             child.completeTask(taskId);
-            System.out.println("Task " + taskId + " completed successfully!");
+            System.out.println("✅ Task " + taskId + " completed successfully!");
+            System.out.println("────────────────────────────────────────────");
         } else {
-            System.out.println("TASK_DONE operation needs 1 parameter! (Task ID)");
+            System.out.println("⚠️ TASK_DONE operation needs 1 parameter! (Task ID)");
+            System.out.println("────────────────────────────────────────────");
         }
     }
 
@@ -183,33 +193,44 @@ public class Operations {
                 taskId = Integer.parseInt(prt.get(1));
                 rating = Integer.parseInt(prt.get(2));
             } catch (NumberFormatException e) {
-                System.out.println("Error: Task ID and Rating must be numbers!");
+                System.out.println("❗ Error: Task ID and Rating must be numbers!");
+                System.out.println("────────────────────────────────────────────");
                 return;
             }
 
             if (rating < 1 || rating > 5) {
-                System.out.println("Error: Rating must be between 1 and 5!");
+                System.out.println("❗ Error: Rating must be between 1 and 5!");
+                System.out.println("────────────────────────────────────────────");
                 return;
             }
 
             Task task = child.getTaskbyID(taskId);
             if (task == null) {
-                System.out.println("Error: Task ID not found!");
+                System.out.println("❗ Error: Task ID not found!");
+                System.out.println("────────────────────────────────────────────");
                 return;
             }
 
             if (!task.isCompleted()) {
-                System.out.println("Error: Task is not completed yet!");
+                System.out.println("⚠️ Error: Task is not completed yet!");
+                System.out.println("────────────────────────────────────────────");
                 return;
             }
+
+            int earned = task.getCoin() * rating / 5;
+            System.out.println("⭐ Task completed successfully with rating " + rating);
+            System.out.println("💰 Coins awarded: " + earned);
+            System.out.println("────────────────────────────────────────────");
 
             if (task.getAssigner().equalsIgnoreCase("Teacher")) {
                 teacher.checkTask(task, rating, child);
             } else {
                 parent.checkTask(task, rating, child);
             }
+
         } else {
-            System.out.println("TASK_CHECKED operation needs 2 parameters! (Task ID & Rating)");
+            System.out.println("⚠️ TASK_CHECKED operation needs 2 parameters! (Task ID & Rating)");
+            System.out.println("────────────────────────────────────────────");
         }
     }
 
@@ -221,24 +242,28 @@ public class Operations {
             } else if (time.equals("W")) {
                 child.showWeeklyTasks();
             } else {
-                System.out.println("Invalid parameter! Use D for daily or W for weekly.");
+                System.out.println("⚠️ Invalid parameter! Use D for daily or W for weekly.");
+                System.out.println("────────────────────────────────────────────");
             }
         } else if (prt.size() == 1) {
             child.showAllTasks();
         } else {
-            System.out.println("Too many parameters for LIST_ALL_TASKS");
+            System.out.println("⚠️ Too many parameters for LIST_ALL_TASKS");
+            System.out.println("────────────────────────────────────────────");
         }
     }
 
     public void operationAddTask(List<String> prt) {
         if (prt.size() < 6) {
-            System.out.println("Error: Task adding operation requires at least 6 parameters!");
+            System.out.println("❗ Error: Task adding operation requires at least 6 parameters!");
+            System.out.println("────────────────────────────────────────────");
             return;
         }
 
         String assigner = prt.get(1);
         if (!assigner.equalsIgnoreCase("P") && !assigner.equalsIgnoreCase("T")) {
-            System.out.println("Error: Invalid assigner! Only 'T' (Teacher) or 'P' (Parent) can add tasks.");
+            System.out.println("❗ Error: Invalid assigner! Only 'T' (Teacher) or 'P' (Parent) can add tasks.");
+            System.out.println("────────────────────────────────────────────");
             return;
         }
 
@@ -246,7 +271,8 @@ public class Operations {
         try {
             taskId = Integer.parseInt(prt.get(2));
         } catch (NumberFormatException e) {
-            System.out.println("Error: Task ID must be a number!");
+            System.out.println("❗ Error: Task ID must be a number!");
+            System.out.println("────────────────────────────────────────────");
             return;
         }
 
@@ -266,7 +292,8 @@ public class Operations {
                     startDate = endDate;
                     endDate = data;
                 } else {
-                    System.out.println("Error: Too many dates detected!");
+                    System.out.println("❗ Error: Too many dates detected!");
+                    System.out.println("────────────────────────────────────────────");
                     return;
                 }
             } else if (isTime(data)) {
@@ -276,11 +303,13 @@ public class Operations {
                     startTime = endTime;
                     endTime = data;
                 } else {
-                    System.out.println("Error: Too many times detected!");
+                    System.out.println("❗ Error: Too many times detected!");
+                    System.out.println("────────────────────────────────────────────");
                     return;
                 }
             } else {
-                System.out.println("Error: Unrecognized parameter: " + data);
+                System.out.println("❗ Error: Unrecognized parameter: " + data);
+                System.out.println("────────────────────────────────────────────");
                 return;
             }
 
@@ -291,31 +320,26 @@ public class Operations {
         try {
             coin = Integer.parseInt(prt.get(prt.size() - 1));
             if (coin < 0) {
-                System.out.println("Error: Coin value cannot be negative!");
+                System.out.println("❗ Error: Coin value cannot be negative!");
+                System.out.println("────────────────────────────────────────────");
                 return;
             }
         } catch (NumberFormatException e) {
-            System.out.println("Error: Coin value must be a valid number!");
+            System.out.println("❗ Error: Coin value must be a valid number!");
+            System.out.println("────────────────────────────────────────────");
             return;
         }
 
         Task task = new Task(assigner, taskId, taskTitle, taskDescription, startDate, startTime, endDate, endTime, coin, false, "Pending");
-        System.out.println("Task added successfully!");
-        System.out.println("Task Details: ");
-        System.out.println("ID: " + taskId);
-        System.out.println("Title: " + taskTitle);
-        System.out.println("Description: " + taskDescription);
-        System.out.println("Start Date: " + (startDate != null ? startDate : "Not Provided"));
-        System.out.println("Start Time: " + (startTime != null ? startTime : "Not Provided"));
-        System.out.println("End Date: " + (endDate != null ? endDate : "Not Provided"));
-        System.out.println("End Time: " + (endTime != null ? endTime : "Not Provided"));
-        System.out.println("Coin: " + coin);
 
         if (assigner.equalsIgnoreCase("T")) {
             teacher.addTask(child, task);
         } else {
             parent.addTask(child, task);
         }
+
+        System.out.println("🎯 Task Added Successfully!");
+        child.printTaskDetails(task);
     }
 
     public boolean isDate(String dateStr) {

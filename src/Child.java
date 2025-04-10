@@ -62,7 +62,7 @@ public class Child {
     public void showAllWishes() {
         boolean found = false;
         for (Wish w : wishList) {
-            System.out.println(toString(w, level));
+            printWishDetails(w);
             found = true;
         }
         if (!found) {
@@ -70,31 +70,38 @@ public class Child {
         }
     }
 
-    public String toString(Wish wish, int childLevel) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("ID: ").append(wish.getWishID()).append(" | ");
-        sb.append("Title: ").append(wish.getWishName()).append(" | ");
-        sb.append("Description: ").append(wish.getWishDescription()).append(" | ");
-        sb.append("Status: ");
+    public void printWishDetails(Wish wish) {
+        System.out.println("────────────────────────────────────────────");
+        System.out.println("🎁  Wish ID     : " + wish.getWishID());
+        System.out.println("📌  Title       : " + wish.getWishName());
+        System.out.println("📝  Description : " + wish.getWishDescription());
+        if (wish.getStartdate() != null && wish.getStartTime() != null) {
+            System.out.println("📅  Start       : " + wish.getStartdate() + " " + wish.getStartTime());
+        }
+        if (wish.getEnddate() != null && wish.getEndTime() != null) {
+            System.out.println("📅  End         : " + wish.getEnddate() + " " + wish.getEndTime());
+        }
+        System.out.print("📊  Status      : ");
         String status = wish.getIsApproved().toUpperCase();
         if (status.equals("APPROVED")) {
-            sb.append("APPROVED (Approved by Parent)");
+            System.out.println("APPROVED (Approved by Parent)");
         } else if (status.equals("REJECTED")) {
-            sb.append("REJECTED (Denied by Parent)");
+            System.out.println("REJECTED (Denied by Parent)");
         } else {
-            if (childLevel < wish.getLevel()) {
-                sb.append("WAITING (Level too low)");
+            if (level < wish.getLevel()) {
+                System.out.println("WAITING (Level too low)");
             } else {
-                sb.append("PENDING (Waiting for Approval)");
+                System.out.println("PENDING (Waiting for Approval)");
             }
         }
-        return sb.toString();
+        System.out.println("────────────────────────────────────────────");
+        System.out.println();
     }
 
     public void showAllTasks() {
         boolean found = false;
         for (Task t : tasks) {
-            System.out.println(toString(t));
+            printTaskDetails(t);
             found = true;
         }
         if (!found) {
@@ -107,9 +114,8 @@ public class Child {
         boolean isToday = false;
         for (Task t : tasks) {
             if (!today.isBefore(t.getEnddate()) &&
-                    (t.getStartdate() == null || !today.isBefore(t.getStartdate())) &&
-                    !t.isCompleted()) {
-                System.out.println(toString(t));
+                    (t.getStartdate() == null || !today.isBefore(t.getStartdate()))) {
+                printTaskDetails(t);
                 isToday = true;
             }
         }
@@ -124,8 +130,8 @@ public class Child {
         java.time.LocalDate Sunday = Monday.plusDays(6);
         boolean isWeekly = false;
         for (Task t : tasks) {
-            if (t.getEnddate() != null && !t.getEnddate().isBefore(Monday) && !t.getEnddate().isAfter(Sunday) && !t.isCompleted()) {
-                System.out.println(toString(t));
+            if (t.getEnddate() != null && !t.getEnddate().isBefore(Monday) && !t.getEnddate().isAfter(Sunday)) {
+                printTaskDetails(t);
                 isWeekly = true;
             }
         }
@@ -134,20 +140,35 @@ public class Child {
         }
     }
 
-    public String toString(Task task) {
-        return "ADD_TASK " + task.getAssigner() + " " + task.getTaskID() + " \"" +
-                task.getTaskTitle() + "\" \"" + task.getTaskDescription() + "\" " +
-                (task.getStartdate() != null ? task.getStartdate() + " " : "") +
-                (task.getStartTime() != null ? task.getStartTime() + " " : "") +
-                (task.getEnddate() != null ? task.getEnddate() + " " : "") +
-                (task.getEndTime() != null ? task.getEndTime() + " " : "") +
-                task.getCoin();
+    public void printTaskDetails(Task task) {
+        System.out.println("────────────────────────────────────────────");
+        System.out.println("🆔  Task ID     : " + task.getTaskID());
+        System.out.println("📝  Title       : " + task.getTaskTitle());
+        System.out.println("📖  Description : " + task.getTaskDescription());
+        if (task.getStartdate() != null && task.getStartTime() != null) {
+            System.out.println("📅  Start       : " + task.getStartdate() + " " + task.getStartTime());
+        }
+        if (task.getEnddate() != null && task.getEndTime() != null) {
+            System.out.println("📅  End         : " + task.getEnddate() + " " + task.getEndTime());
+        }
+        System.out.println("💰  Coin        : " + task.getCoin());
+        System.out.println("👤  Assigned By : " + (task.getAssigner().equalsIgnoreCase("T") ? "Teacher" : "Parent"));
+        System.out.println("📌  Status      : " +
+                (task.isCompleted() ? "Completed ✅" : "Pending"));
+        System.out.println("────────────────────────────────────────────");
+        System.out.println();
     }
 
     public void saveTasksToFile(String fileName) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileName))) {
             for (Task t : tasks) {
-                bw.write(toString(t));
+                bw.write("ADD_TASK " + t.getAssigner() + " " + t.getTaskID() + " \"" +
+                        t.getTaskTitle() + "\" \"" + t.getTaskDescription() + "\" " +
+                        (t.getStartdate() != null ? t.getStartdate() + " " : "") +
+                        (t.getStartTime() != null ? t.getStartTime() + " " : "") +
+                        (t.getEnddate() != null ? t.getEnddate() + " " : "") +
+                        (t.getEndTime() != null ? t.getEndTime() + " " : "") +
+                        t.getCoin());
                 bw.newLine();
             }
         } catch (IOException e) {

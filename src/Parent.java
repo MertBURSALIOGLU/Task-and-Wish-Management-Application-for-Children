@@ -4,12 +4,10 @@ public class Parent extends Adult {
     }
 
     public void approveWish(Child child, String wishID, String status) {
-        Wish w = child.getWishByID(wishID);
-        if (w != null) {
-            w.setApproved(status);
-            System.out.println("Wish " + wishID + " " + status.toLowerCase() + ".");
-        } else {
-            System.out.println("Error: Wish not found!");
+        Wish wish = child.getWishByID(wishID);
+        if (wish != null) {
+            wish.setIsApproved(status);
         }
     }
+
 }

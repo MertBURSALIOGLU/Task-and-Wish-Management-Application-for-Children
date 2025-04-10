@@ -31,6 +31,9 @@ public class Wish {
     public void setWishID(String wishID) {
         this.wishID = wishID;
     }
+    public void setIsApproved(String isApproved) {
+        this.isApproved = isApproved;
+    }
 
     public String getWishName() {
         return wishName;

@@ -14,7 +14,6 @@ public class Adult {
     public void addTask(Child child, Task task) {
         child.addTask(task);
         myTasks.add(task);
-        System.out.println("Task assigned by " + name);
     }
 
     public List<Task> getMyTasks() {
