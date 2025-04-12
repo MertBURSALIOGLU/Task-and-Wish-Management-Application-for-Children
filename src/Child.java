@@ -58,6 +58,18 @@ public class Child {
         }
         return null;
     }
+    public void wishleveladder(String wishID,int level) {
+    Wish wish = getWishByID(wishID);
+    wish.setLevel(level);
+    }
+    private void approveEligibleWishes() {
+        for (Wish wish : wishList) {
+            if (wish.getIsApproved().equals("PENDING") && getLevel() >= wish.getLevel()&&wish.getLevel() != -1) {
+                wish.setIsApproved("APPROVED");
+            }
+        }
+    }
+
 
     public void showAllWishes() {
         boolean found = false;
@@ -217,5 +229,6 @@ public class Child {
         else if (coins > 40 && coins <= 60) this.level = 2;
         else if (coins > 60 && coins <= 80) this.level = 3;
         else this.level = 4;
+        approveEligibleWishes();
     }
 }

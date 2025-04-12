@@ -78,11 +78,12 @@ public class Operations {
         int level = (prt.size() == 4) ? Integer.parseInt(prt.get(3)) : -1;
 
         if (status.equals("APPROVED")) {
-            if (level == -1 || child.getLevel() > level) {
+            if (level == -1 || child.getLevel() >= level) {
                 parent.approveWish(child, wishID, "APPROVED");
                 System.out.println("🟢 Wish " + wishID + " approved.");
             } else {
-                System.out.println("🟡 Child level too low to approve this wish.");
+                child.wishleveladder(wishID,level);
+                System.out.println("🟡 Wish will be approved when child meet the level!.");
             }
         } else if (status.equals("REJECTED")) {
             parent.approveWish(child, wishID, "REJECTED");
@@ -93,6 +94,9 @@ public class Operations {
 
         System.out.println("────────────────────────────────────────────");
     }
+
+
+
 
     private void operationAddCoin(List<String> prt) {
         if (prt.size() == 2) {
@@ -218,7 +222,7 @@ public class Operations {
             }
 
             int earned = task.getCoin() * rating / 5;
-            System.out.println("⭐ Task completed successfully with rating " + rating);
+            System.out.println("⭐ Task " + taskId+" completed successfully with rating " + rating);
             System.out.println("💰 Coins awarded: " + earned);
             System.out.println("────────────────────────────────────────────");
 

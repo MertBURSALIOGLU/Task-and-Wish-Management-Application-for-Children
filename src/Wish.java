@@ -16,7 +16,7 @@ public class Wish {
         this.wishID = wishID;
         this.wishName = wishName;
         this.wishDescription = wishDescription;
-        this.level = level;
+        this.level = -1;
         this.startDate = (startDate != null && !startDate.isEmpty()) ? LocalDate.parse(startDate) : null;
         this.startTime = (startTime != null && !startTime.isEmpty()) ? LocalTime.parse(startTime) : null;
         this.endDate = (endDate != null && !endDate.isEmpty()) ? LocalDate.parse(endDate) : null;

@@ -36,8 +36,7 @@ public class Adult {
         task.setRating(rating);
         int awardedCoin = task.getCoin() * rating / 5;
         child.setCoins(child.getCoins() + awardedCoin);
-        System.out.println("Task completed successfully with rating " + rating);
-        System.out.println("Child awarded coins: " + child.getCoins());
+
     }
 
     public String toString(Task task) {
