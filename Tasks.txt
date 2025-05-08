@@ -18,3 +18,71 @@ ADD_TASK T 217 "Future Task 2" "Write book summary" 2025-04-25 14:00 2025-04-25 
 ADD_TASK P 218 "Future Task 3" "Paint backyard bench" 2025-04-27 10:00 2025-04-27 12:00 4
 ADD_TASK T 219 "Future Task 4" "Code a mini project" 2025-05-01 13:00 2025-05-01 15:00 8
 ADD_TASK P 220 "Future Task 5" "Make a scrapbook" 2025-05-03 11:00 2025-05-03 13:00 7
+ADD_TASK T 201 "Math Homework" "Solve exercises on page 42" 2025-04-10 10:00 2025-04-10 20:00 10
+ADD_TASK P 202 "Clean Room" "Organize your books and desk" 2025-04-10 12:00 2025-04-10 17:00 8
+ADD_TASK T 203 "Reading" "Read 10 pages from science book" 2025-04-09 08:00 2025-04-10 09:00 5
+ADD_TASK P 204 "Take Out Trash" "Take the trash out before dinner" 2025-04-10 18:00 2025-04-10 19:00 2
+ADD_TASK T 205 "Draw Shapes" "Draw basic shapes on paper" 2025-04-11 14:00 2025-04-11 15:00 3
+ADD_TASK P 206 "Water Plants" "Water all the garden plants" 2025-04-08 10:00 2025-04-10 10:00 4
+ADD_TASK T 207 "Practice Piano" "Play scale exercises" 2025-04-07 15:00 2025-04-10 16:00 5
+ADD_TASK P 208 "Sweep the Floor" "Living room and hall" 2025-04-07 09:00 2025-04-09 11:00 3
+ADD_TASK T 209 "Spelling Practice" "List 5 new words" 2025-04-08 13:00 2025-04-10 14:00 4
+ADD_TASK P 210 "Organize Closet" "Fold clothes neatly" 2025-04-09 16:00 2025-04-10 19:00 6
+ADD_TASK T 211 "Science Project" "Prepare volcano model" 2025-04-10 10:00 2025-04-13 15:00 12
+ADD_TASK P 212 "Sketch Drawing" "Draw an animal" 2025-04-12 12:00 2025-04-12 14:00 5
+ADD_TASK T 213 "Write Poem" "Short 4-line poem" 2025-04-11 14:00 2025-04-12 16:00 4
+ADD_TASK P 214 "Recycle Bottles" "Sort and dispose bottles" 2025-04-13 10:00 2025-04-13 12:00 2
+ADD_TASK T 215 "Bike Ride" "20-minute outdoor cycling" 2025-04-13 09:00 2025-04-13 10:00 6
+ADD_TASK P 216 "Future Task 1" "Plant new flowers" 2025-04-21 09:00 2025-04-21 11:00 5
+ADD_TASK T 217 "Future Task 2" "Write book summary" 2025-04-25 14:00 2025-04-25 16:00 6
+ADD_TASK P 218 "Future Task 3" "Paint backyard bench" 2025-04-27 10:00 2025-04-27 12:00 4
+ADD_TASK T 219 "Future Task 4" "Code a mini project" 2025-05-01 13:00 2025-05-01 15:00 8
+ADD_TASK P 220 "Future Task 5" "Make a scrapbook" 2025-05-03 11:00 2025-05-03 13:00 7
+ADD_TASK T 201 "Math Homework" "Solve exercises on page 42" 2025-04-10 10:00 2025-04-10 20:00 10
+ADD_TASK P 202 "Clean Room" "Organize your books and desk" 2025-04-10 12:00 2025-04-10 17:00 8
+ADD_TASK T 203 "Reading" "Read 10 pages from science book" 2025-04-09 08:00 2025-04-10 09:00 5
+ADD_TASK P 204 "Take Out Trash" "Take the trash out before dinner" 2025-04-10 18:00 2025-04-10 19:00 2
+ADD_TASK T 205 "Draw Shapes" "Draw basic shapes on paper" 2025-04-11 14:00 2025-04-11 15:00 3
+ADD_TASK P 206 "Water Plants" "Water all the garden plants" 2025-04-08 10:00 2025-04-10 10:00 4
+ADD_TASK T 207 "Practice Piano" "Play scale exercises" 2025-04-07 15:00 2025-04-10 16:00 5
+ADD_TASK P 208 "Sweep the Floor" "Living room and hall" 2025-04-07 09:00 2025-04-09 11:00 3
+ADD_TASK T 209 "Spelling Practice" "List 5 new words" 2025-04-08 13:00 2025-04-10 14:00 4
+ADD_TASK P 210 "Organize Closet" "Fold clothes neatly" 2025-04-09 16:00 2025-04-10 19:00 6
+ADD_TASK T 211 "Science Project" "Prepare volcano model" 2025-04-10 10:00 2025-04-13 15:00 12
+ADD_TASK P 212 "Sketch Drawing" "Draw an animal" 2025-04-12 12:00 2025-04-12 14:00 5
+ADD_TASK T 213 "Write Poem" "Short 4-line poem" 2025-04-11 14:00 2025-04-12 16:00 4
+ADD_TASK P 214 "Recycle Bottles" "Sort and dispose bottles" 2025-04-13 10:00 2025-04-13 12:00 2
+ADD_TASK T 215 "Bike Ride" "20-minute outdoor cycling" 2025-04-13 09:00 2025-04-13 10:00 6
+ADD_TASK P 216 "Future Task 1" "Plant new flowers" 2025-04-21 09:00 2025-04-21 11:00 5
+ADD_TASK T 217 "Future Task 2" "Write book summary" 2025-04-25 14:00 2025-04-25 16:00 6
+ADD_TASK P 218 "Future Task 3" "Paint backyard bench" 2025-04-27 10:00 2025-04-27 12:00 4
+ADD_TASK T 219 "Future Task 4" "Code a mini project" 2025-05-01 13:00 2025-05-01 15:00 8
+ADD_TASK P 220 "Future Task 5" "Make a scrapbook" 2025-05-03 11:00 2025-05-03 13:00 7
+ADD_TASK T 201 "Math Homework" "Solve exercises on page 42" 2025-04-10 10:00 2025-04-10 20:00 10
+ADD_TASK P 202 "Clean Room" "Organize your books and desk" 2025-04-10 12:00 2025-04-10 17:00 8
+ADD_TASK T 203 "Reading" "Read 10 pages from science book" 2025-04-09 08:00 2025-04-10 09:00 5
+ADD_TASK P 204 "Take Out Trash" "Take the trash out before dinner" 2025-04-10 18:00 2025-04-10 19:00 2
+ADD_TASK T 205 "Draw Shapes" "Draw basic shapes on paper" 2025-04-11 14:00 2025-04-11 15:00 3
+ADD_TASK P 206 "Water Plants" "Water all the garden plants" 2025-04-08 10:00 2025-04-10 10:00 4
+ADD_TASK T 207 "Practice Piano" "Play scale exercises" 2025-04-07 15:00 2025-04-10 16:00 5
+ADD_TASK P 208 "Sweep the Floor" "Living room and hall" 2025-04-07 09:00 2025-04-09 11:00 3
+ADD_TASK T 209 "Spelling Practice" "List 5 new words" 2025-04-08 13:00 2025-04-10 14:00 4
+ADD_TASK P 210 "Organize Closet" "Fold clothes neatly" 2025-04-09 16:00 2025-04-10 19:00 6
+ADD_TASK T 211 "Science Project" "Prepare volcano model" 2025-04-10 10:00 2025-04-13 15:00 12
+ADD_TASK P 212 "Sketch Drawing" "Draw an animal" 2025-04-12 12:00 2025-04-12 14:00 5
+ADD_TASK T 213 "Write Poem" "Short 4-line poem" 2025-04-11 14:00 2025-04-12 16:00 4
+ADD_TASK P 214 "Recycle Bottles" "Sort and dispose bottles" 2025-04-13 10:00 2025-04-13 12:00 2
+ADD_TASK T 215 "Bike Ride" "20-minute outdoor cycling" 2025-04-13 09:00 2025-04-13 10:00 6
+ADD_TASK P 216 "Future Task 1" "Plant new flowers" 2025-04-21 09:00 2025-04-21 11:00 5
+ADD_TASK T 217 "Future Task 2" "Write book summary" 2025-04-25 14:00 2025-04-25 16:00 6
+ADD_TASK P 218 "Future Task 3" "Paint backyard bench" 2025-04-27 10:00 2025-04-27 12:00 4
+ADD_TASK T 219 "Future Task 4" "Code a mini project" 2025-05-01 13:00 2025-05-01 15:00 8
+ADD_TASK P 220 "Future Task 5" "Make a scrapbook" 2025-05-03 11:00 2025-05-03 13:00 7
+ADD_TASK T 201 "Math Homework" "Solve exercises on page 42" 2025-04-10 10:00 2025-04-10 20:00 10
+ADD_TASK P 202 "Clean Room" "Organize your books and desk" 2025-04-10 12:00 2025-04-10 17:00 8
+ADD_TASK T 203 "Reading" "Read 10 pages from science book" 2025-04-09 08:00 2025-04-10 09:00 5
+ADD_TASK P 204 "Take Out Trash" "Take the trash out before dinner" 2025-04-10 18:00 2025-04-10 19:00 2
+ADD_TASK T 205 "Draw Shapes" "Draw basic shapes on paper" 2025-04-11 14:00 2025-04-11 15:00 3
+ADD_TASK P 206 "Water Plants" "Water all the garden plants" 2025-04-08 10:00 2025-04-10 10:00 4
+ADD_TASK T 207 "Practice Piano" "Play scale exercises" 2025-04-07 15:00 2025-04-10 16:00 5
+ADD_TASK P 208 "Sweep the Floor" "Living room and hall" 2025-04-07 09:00 2025-04-09 11:00 3

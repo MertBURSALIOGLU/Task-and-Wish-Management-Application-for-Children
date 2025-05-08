@@ -3,12 +3,12 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.List;
 
-public class Operations {
+public class CommandHandler {
     private Teacher teacher;
     private Parent parent;
     private Child child;
 
-    public Operations(Teacher teacher, Parent parent, Child child) {
+    public CommandHandler(Teacher teacher, Parent parent, Child child) {
         this.teacher = teacher;
         this.parent = parent;
         this.child = child;
@@ -16,7 +16,7 @@ public class Operations {
 
     public void operationselector(List<String> prt) {
         if (prt == null || prt.isEmpty()) {
-            System.out.println("❗ Error: Empty input detected!");
+            System.out.println("❗ Error: Empty input detected! ");
             return;
         }
 
@@ -82,7 +82,7 @@ public class Operations {
                 parent.approveWish(child, wishID, "APPROVED");
                 System.out.println("🟢 Wish " + wishID + " approved.");
             } else {
-                child.wishleveladder(wishID,level);
+                child.wishlevel(wishID,level);
                 System.out.println("🟡 Wish will be approved when child meet the level!.");
             }
         } else if (status.equals("REJECTED")) {

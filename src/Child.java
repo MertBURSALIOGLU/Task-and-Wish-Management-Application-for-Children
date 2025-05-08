@@ -23,19 +23,19 @@ public class Child {
 
     public void addTask(Task task) {
         tasks.add(task);
-        saveTasksToFile("Tasks.txt");
+        appendTasksToFile("Tasks.txt");
     }
 
     public void addWish(Wish wish) {
         wishList.add(wish);
-        saveWishesToFile("Wishes.txt");
+        appendWishesToFile("Wishes.txt");
     }
 
     public void completeTask(int ID) {
         Task task = getTaskbyID(ID);
         if (task != null) {
             task.setCompleted(true);
-            saveTasksToFile("Tasks.txt");
+            appendTasksToFile("Tasks.txt");
         } else {
             System.out.println("Error: Task not found!");
         }
@@ -58,9 +58,10 @@ public class Child {
         }
         return null;
     }
-    public void wishleveladder(String wishID,int level) {
+    public void wishlevel(String wishID,int level) {
     Wish wish = getWishByID(wishID);
     wish.setLevel(level);
+        approveEligibleWishes();
     }
     private void approveEligibleWishes() {
         for (Wish wish : wishList) {
@@ -171,7 +172,7 @@ public class Child {
         System.out.println();
     }
 
-    public void saveTasksToFile(String fileName) {
+    public void appendTasksToFile(String fileName) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileName))) {
             for (Task t : tasks) {
                 bw.write("ADD_TASK " + t.getAssigner() + " " + t.getTaskID() + " \"" +
@@ -188,7 +189,7 @@ public class Child {
         }
     }
 
-    public void saveWishesToFile(String fileName) {
+    public void appendWishesToFile(String fileName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             for (Wish w : wishList) {
                 writer.write("ADD_WISH " + w.getWishID() + " \"" + w.getWishName() + "\" \"" + w.getWishDescription() + "\" " +

@@ -6,12 +6,12 @@ public class Main {
         Child child = new Child(1123, "Child", 1, 0);
         Teacher teacher = new Teacher("Teacher", 123);
         Parent parent = new Parent("Parent", 1213);
-        Operations operations = new Operations(teacher, parent, child);
+        CommandHandler commandHandler = new CommandHandler(teacher, parent, child);
         Scanner sc = new Scanner(System.in);
 
-        FileTasks(operations);
-        FileWishes(operations);
-        FileCommands(operations);
+        FileTasks(commandHandler);
+        FileWishes(commandHandler);
+        FileCommands(commandHandler);
 
         while (true) {
             System.out.println("Input (type 'exit' to quit): ");
@@ -25,12 +25,12 @@ public class Main {
                 continue;
             }
             List<String> tokenizedInput = inputsplitter(in);
-            operations.operationselector(tokenizedInput);
+            commandHandler.operationselector(tokenizedInput);
         }
         sc.close();
     }
 
-    private static void FileTasks(Operations operations) {
+    private static void FileTasks(CommandHandler commandHandler) {
         File file1 = new File("Tasks.txt");
         if (!file1.exists()) {
             System.out.println("Error: Tasks does not exist!");
@@ -41,7 +41,7 @@ public class Main {
             String line;
             while ((line = br.readLine()) != null) {
                 if (!line.isEmpty()) {
-                    operations.operationselector(inputsplitter(line));
+                    commandHandler.operationselector(inputsplitter(line));
                 }
             }
             br.close();
@@ -50,7 +50,7 @@ public class Main {
         }
     }
 
-    private static void FileWishes(Operations operations) {
+    private static void FileWishes(CommandHandler commandHandler) {
         File file2 = new File("Wishes.txt");
         if (!file2.exists()) {
             System.out.println("Error: Wishes does not exist!");
@@ -61,7 +61,7 @@ public class Main {
             String line;
             while ((line = br.readLine()) != null) {
                 if (!line.isEmpty()) {
-                    operations.operationselector(inputsplitter(line));
+                    commandHandler.operationselector(inputsplitter(line));
                 }
             }
         } catch (IOException e) {
@@ -69,7 +69,7 @@ public class Main {
         }
     }
 
-    private static void FileCommands(Operations operations) {
+    private static void FileCommands(CommandHandler commandHandler) {
         File file3 = new File("Commands.txt");
         if (!file3.exists()) {
             System.out.println("Error: Commands does not exist!");
@@ -80,7 +80,7 @@ public class Main {
             String line;
             while ((line = br.readLine()) != null) {
                 if (!line.isEmpty()) {
-                    operations.operationselector(inputsplitter(line));
+                    commandHandler.operationselector(inputsplitter(line));
                 }
             }
         } catch (IOException e) {
